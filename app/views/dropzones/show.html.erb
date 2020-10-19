@@ -1,0 +1,16 @@
+<h2><%= @dropzone[:dz_name] %></h2>
+
+<%= image_tag @dropzone[:image], :class => 'feature' if @dropzone.image.present? %>
+
+<% @dropzone.events.each do |event| %>
+  <%= link_to event.name, event %>
+  <% end %>
+
+<% if @current_user.present? %>
+  <% if @current_user.admin? %>
+    <div class="controls">
+      <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
+      <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+    </div>
+  <% end %>
+<% end %>

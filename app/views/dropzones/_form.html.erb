@@ -1,0 +1,10 @@
+
+<%= form_for @dropzone do |f| %>
+  <%= f.label :state %>
+  <%= f.text_field :state, :required => true, :autofocus => true %>
+  <%= f.label :dz_name %>
+  <%= f.text_field :dz_name, :required => true %>
+  <%= f.label :image %>
+  <%= f.url_field :image %>
+  <%= f.submit %>
+<% end %>

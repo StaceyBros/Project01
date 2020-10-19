@@ -1,0 +1,28 @@
+<h2><%= @event[:name] %></h2>
+
+<%= image_tag @event.image, :class => 'feature' if @event.image.present? %>
+
+<div class="controls">
+  <%= link_to "Edit #{@event.name}", edit_event_path(@event.id) %>
+  <%= link_to "Delete #{@event.name}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+
+<ul>
+  <li>Date: <%= @event[:date].strftime "%e %b %Y"  %></li>
+  <% if @event.dropzone.present? %>
+    <li>Dropzone: <%= link_to @event.dropzone.dz_name, @event.dropzone %> </li>
+  <% end %>
+  <li>Organiser: <%= @event[:organiser]%></li>
+  <% if @event.coach.present? %>
+    <li>Coach: <%= @event[:coach] if @event.coach.present?%></li>
+  <% end %>
+    <li>Price: <%= number_to_currency @event[:price] if @event.price.present?%></li>
+  <% if @event.coach.present? %>
+    <li>Contact: <%= @event[:contact] if @event.contact.present?%></li>
+  <% end %>
+</ul>
+
+  <% if @event.user_id == @current_user.id %>
+    <%= button_to "Unattend", unattend_path(@event.id)%>
+  <% else %>
+    <%= button_to "Going", attend_path(@event.id) %>
+  <% end %>

@@ -1,0 +1,10 @@
+<% if @current_user.present? %>
+    <h1><%= @current_user.name %></h1>
+    <p>Yay you're logged in as <%= @current_user.email%></p>
+    <%= @current_user.license %>
+
+    <% @current_user.events.each do |event| %>
+      <%= link_to event.name, event %>
+    <% end %>
+
+   <% end %>
