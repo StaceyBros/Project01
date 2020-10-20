@@ -2,19 +2,31 @@
 <%= form_for @event do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'required' %>
+
   <%= f.label :date %>
   <%= f.date_field :date, :required => true %>
+
   <%= f.label :organiser %>
   <%= f.text_field :organiser, :required => true, :placeholder => 'required' %>
+
   <%= f.label :coach %>
   <%= f.text_field :coach %>
+
   <%= f.label :price %>
   <%= f.number_field :price, :required => true, :placeholder => 'required'%>
+
   <%= f.label :image %>
   <%= f.url_field :image %>
+
   <%= f.label :contact %>
   <%= f.email_field :contact %>
+
   <%= f.label :dropzone_id %>
   <%= f.select :dropzone_id, Dropzone.pluck(:dz_name, :id), :include_blank =>true %>
+
+  <%= f.label :discipline_id %>
+    <%= f.select :discipline_id, Discipline.pluck(:name, :id), :include_blank =>true %>
+
+
   <%= f.submit %>
 <% end %>

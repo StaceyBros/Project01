@@ -16,19 +16,19 @@ e1 = Event.create :name => 'Freefly bigways', :date => '2020-11-04', :organiser 
 e2 = Event.create :name => '4 way scrambles', :date => '2021-01-24', :organiser => 'Melissa'
 e3 = Event.create :name => 'Beginner Wingsuit', :date => '2021-08-31', :organiser => 'Jason'
 e4 = Event.create :name => 'Downunder Dynamics', :date => '2021-02-02', :organiser => 'Mason'
-e5 = Event.create :name => 'Canapy Course', :date => '2020-11-28', :organiser => 'Jesse'
+e5 = Event.create :name => 'Canopy Course', :date => '2020-11-28', :organiser => 'Jesse'
 e6 = Event.create :name => 'Advanced Angles', :date => '2021-02-02', :organiser => 'Ben'
 puts "#{ Event.count } events."
 
 Discipline.destroy_all
-d1 = Discipline.create :name => 'Flat Flying'
-d2 = Discipline.create :name => 'Free Flying'
-d3 = Discipline.create :name => 'Canopy'
-d7 = Discipline.create :name => 'Angles'
-d4 = Discipline.create :name => 'Wingsuit flying'
-d5 = Discipline.create :name => 'Night jumps'
-d6 = Discipline.create :name => 'Boogie'
-d7 = Discipline.create :name => 'Competition'
+di1 = Discipline.create :name => 'Flat Flying'
+di2 = Discipline.create :name => 'Free Flying'
+di3 = Discipline.create :name => 'Canopy'
+di4 = Discipline.create :name => 'Angles'
+di5 = Discipline.create :name => 'Wingsuit flying'
+di6 = Discipline.create :name => 'Night jumps'
+di7 = Discipline.create :name => 'Boogie'
+di8 = Discipline.create :name => 'Competition'
 puts "#{ Discipline.count } disciplines."
 
 puts "Events and users"
@@ -40,8 +40,8 @@ d1.events << e5 << e5 << e6
 d2.events << e3 << e4 << e2
 
 puts "Disciplines and Events"
-e1.disciplines << d2
-e2.disciplines << d1
-e3.disciplines << d4 << d7
+e1.disciplines << di2
+e2.disciplines << di1
+e3.disciplines << di5 << di8
 
-d6.events << e4 << e6
+di6.events << e4 << e6
