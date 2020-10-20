@@ -21,3 +21,8 @@ nav{
   margin: center;
   background-color: lightgreen;
 }
+
+#mapid {
+width: 200px;
+height: 200px;
+}

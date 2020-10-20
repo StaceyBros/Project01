@@ -26,15 +26,18 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create event_params
+    @events = Event.all
     redirect_to event
   end
 
   def edit
     @event = Event.find params[:id]
+    @events = Event.all
   end
 
   def update
     event = Event.find params[:id]
+    @events = Event.all
     event.update event_params
     redirect_to event_path(event.id)
   end

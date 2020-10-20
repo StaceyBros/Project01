@@ -25,8 +25,12 @@
   <%= f.select :dropzone_id, Dropzone.pluck(:dz_name, :id), :include_blank =>true %>
 
   <%= f.label :discipline_id %>
-    <%= f.select :discipline_id, Discipline.pluck(:name, :id), :include_blank =>true %>
+    <%= f.select :discipline_id, Discipline.pluck(:name, :id) %>
 
+    <% @events.all.each do |discipline| %>
+        <%= check_box_tag "Category", discipline.id %>
+        <%= discipline.name %><br/>
+      <% end %>
 
   <%= f.submit %>
-<% end %>
+  <% end %>

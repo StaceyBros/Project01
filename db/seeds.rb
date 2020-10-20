@@ -4,10 +4,10 @@ u2 = User.create :email => 'pam@ga.co', :password => 'chicken', :admin => true
 puts "#{ User.count } users."
 
 Dropzone.destroy_all
-d1 = Dropzone.create :dz_name => 'Sydney Skydivers', :state => 'New South Wales'
-d2 = Dropzone.create :dz_name => 'Elderslie', :state => 'New South Wales'
-d3 = Dropzone.create :dz_name => 'Nagambie', :state => 'Victoria'
-d4 = Dropzone.create :dz_name => 'Toogoolawah', :state => 'Queensland'
+d1 = Dropzone.create :dz_name => 'Sydney Skydivers', :state => 'New South Wales', :latitude => -34.212658, :longitude => 150.666842
+d2 = Dropzone.create :dz_name => 'Elderslie', :state => 'New South Wales', :latitude => -32.599549, :longitude => 151.343105
+d3 = Dropzone.create :dz_name => 'Nagambie', :state => 'Victoria', :latitude => -36.788749, :longitude => 145.040343
+d4 = Dropzone.create :dz_name => 'Skydive Ramblers', :state => 'Queensland', :latitude => -27.069889, :longitude => 152.382466
 puts "#{ Dropzone.count } dropzones."
 
 

@@ -2,15 +2,33 @@
 
 <%= image_tag @dropzone[:image], :class => 'feature' if @dropzone.image.present? %>
 
+<div id="mapid">
+
+</div>
+
 <% @dropzone.events.each do |event| %>
   <%= link_to event.name, event %>
   <% end %>
 
+
 <% if @current_user.present? %>
+<script>
+  $(document).ready(function () {
+
+    const mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR', {
+      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+  }).addTo(mymap);
+  });
+
+</script>
+
   <% if @current_user.admin? %>
     <div class="controls">
       <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
       <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
     </div>
+
+
   <% end %>
 <% end %>
