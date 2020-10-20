@@ -26,7 +26,6 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create event_params
-    @events = Event.all
     redirect_to event
   end
 
@@ -37,7 +36,6 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find params[:id]
-    @events = Event.all
     event.update event_params
     redirect_to event_path(event.id)
   end
@@ -50,6 +48,6 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :date, :organiser, :coach, :image, :dropzone_id, :price, :contact, :discipline_id)
+      params.require(:event).permit(:name, :date, :organiser, :coach, :image, :dropzone_id, :price, :contact, :discipline_ids => [])
     end
 end
