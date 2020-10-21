@@ -1,6 +1,6 @@
 <h2><%= @dropzone[:dz_name] %></h2>
 
-<%= image_tag @dropzone[:image], :class => 'feature' if @dropzone.image.present? %>
+<%= cl_image_tag(@dropzone.image) %>
 
 <div id="mapid">
 

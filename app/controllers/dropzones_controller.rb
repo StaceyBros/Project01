@@ -14,6 +14,11 @@ class DropzonesController < ApplicationController
 
   def create
     dropzone = Dropzone.create dropzone_params
+      if params[:file].present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        dropzone.image = req["public_id"]
+        dropzone.save
+      end
     redirect_to dropzone
   end
 
@@ -23,7 +28,12 @@ class DropzonesController < ApplicationController
 
   def update
     dropzone = Dropzone.find params[:id]
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      dropzone.image = req["public_id"]
+    end
     dropzone.update dropzone_params
+    dropzone.save
     redirect_to dropzone_path(dropzone.id)
   end
 

@@ -26,6 +26,11 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create event_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      event.image = req["public_id"]
+      event.save
+    end
     redirect_to event
   end
 
@@ -35,7 +40,12 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find params[:id]
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      event.image = req["public_id"]
+    end
     event.update event_params
+    event.save
     redirect_to event_path(event.id)
   end
 

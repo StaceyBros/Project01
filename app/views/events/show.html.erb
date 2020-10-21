@@ -1,6 +1,6 @@
 <h2><%= @event[:name] %></h2>
 
-<%= image_tag @event.image, :class => 'feature' if @event.image.present? %>
+<%= cl_image_tag(@event.image) %>
 
 <div class="controls">
   <%= link_to "Edit #{@event.name}", edit_event_path(@event.id) %>

@@ -1,5 +1,5 @@
 
-<%= form_for @event do |f| %>
+<%= form_for(@event, :html => {:multipart => true}) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'required' %>
 
@@ -16,7 +16,7 @@
   <%= f.number_field :price, :required => true, :placeholder => 'required'%>
 
   <%= f.label :image %>
-  <%= f.url_field :image %>
+  <%= f.cl_image_upload :image %>
 
   <%= f.label :contact %>
   <%= f.email_field :contact %>
