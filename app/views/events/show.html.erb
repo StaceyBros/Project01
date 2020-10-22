@@ -3,7 +3,7 @@
   <div id="show_html">
     <h2 class="show_event_h2"><%= @event[:name] %></h2>
 
-    <%= cl_image_tag(@event.image, :width => 300, :crop => :fill) %>
+    <%= cl_image_tag(@event.image, :crop => :fill, :class => "img") %>
 
 
     <ul class="event_details">

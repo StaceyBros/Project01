@@ -1,4 +1,4 @@
-/* = require leaflet */
+  /* = require leaflet */
   @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
   @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato&display=swap');
@@ -35,10 +35,10 @@
     margin-left: 0;
   }
 
-.controls a{
+  .controls a{
     margin-left: 20px;
     padding: 1.1em. 1.7em;
-}
+  }
   .controls a:hover{
     background-color: yellow;
     color: black;
@@ -47,7 +47,7 @@
   .controls_show a:hover{
     background-color: yellow;
     color: black;
-}
+  }
   .controls_show a{
     margin: 1em;
   }
@@ -245,6 +245,7 @@
     padding-top: 5px;
     box-shadow: 5px 4px;
     margin: auto;
+    margin: top;
     max-width: 500px;
     background-color: white;
     border-top-left-radius: .5em;
@@ -261,25 +262,33 @@
   }
 
   #show_html input{
+    background-color: black;
+    color: white;
+    width: 25%;
+  }
+
+  #show_html input:hover{
     background-color: yellow;
-    width: 20%;
+    color: black;
   }
 
   #show_html a{
-    color: blue;
+    color: rgba(54,149,255,1) ;
   }
 
   #show_html a:hover{
-    color: grey;
+    color: rgba(54,149,255,1);
+    text-shadow: 2px 1px 1px black;
   }
 
   .dropzone_events{
     text-align: center;
     list-style: none;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    font-size: 25px;
   }
 
-  .dropzone_image{
+  .img{
     display: flex;
     width: 400px;
     margin: 0 auto;

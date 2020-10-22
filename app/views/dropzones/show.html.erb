@@ -1,10 +1,10 @@
   <div id = "blueskies">
 
       <div id="show_html">
-        <h2><%= @dropzone[:dz_name] %></h2>
+        <h2 id="show_html_header"><%= @dropzone[:dz_name] %></h2>
 
         <div class="img">
-          <%= cl_image_tag(@dropzone.image, :crop => :fill, :class => "dropzone_image") %>
+          <%= cl_image_tag(@dropzone.image, :crop => :fill, :class => "img") %>
         </div>
 
         <% @dropzone.events.each do |event| %>
