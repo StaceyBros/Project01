@@ -43,7 +43,7 @@ di9 = Discipline.create :name => 'Tracking'
 puts "#{ Discipline.count } disciplines."
 
 puts "Events and users"
-u1.events << e1 << e2
+u1.events << e1 << e2 << e8
 u2.events << e3 << e4 << e2
 
 puts "Dropzones and Events"
@@ -52,11 +52,21 @@ d2.events << e3 << e4 << e2
 d3.events << e7 << e8
 d4.events << e8
 d5.events << e8 << e6
+d6.events << e8 << e6
+d7.events << e3 << e5 << e4
+d8.events << e1 << e5 << e4
+d9.events << e2 << e6 << e3
 
 puts "Disciplines and Events"
 e1.disciplines << di2
 e2.disciplines << di1
 e3.disciplines << di5 << di8
+e4.disciplines << di1
+e5.disciplines << di1
+e6.disciplines << di1
+e7.disciplines << di1
+e8.disciplines << di1
+
 
 
 di6.events << e4 << e6

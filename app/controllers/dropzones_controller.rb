@@ -1,7 +1,7 @@
 class DropzonesController < ApplicationController
 
   def index
-    @dropzones = Dropzone.all
+    @dropzones = Dropzone.order "created_at desc"
   end
 
   def show
