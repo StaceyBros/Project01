@@ -4,12 +4,13 @@
     <title>Project01</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= cloudinary_js_config %>
   </head>
+  <div class="container">
     <nav>
           <% if @current_user.present? %>
             <% if @current_user.admin? %>
@@ -24,7 +25,9 @@
             <%= link_to "Login", login_path %>
           <% end %>
     </nav>
-  <body>
-    <%= yield %>
-  </body>
+   <body>
+
+     <%= yield %>
+   </body>
+   </div>
 </html>

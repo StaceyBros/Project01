@@ -1,33 +1,36 @@
+<div id = "create_edit">
 
-<%= form_for(@event, :html => {:multipart => true}) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'required' %>
+    <%= form_for(@event, :html => {:multipart => true}) do |f|%>
+      <%= f.label :name %>
+      <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'required' %>
 
-  <%= f.label :date %>
-  <%= f.date_field :date, :required => true %>
+    <%= f.label :date %>
+    <%= f.date_field :date, :required => true %>
 
-  <%= f.label :organiser %>
-  <%= f.text_field :organiser, :required => true, :placeholder => 'required' %>
+    <%= f.label :organiser %>
+    <%= f.text_field :organiser, :required => true, :placeholder => 'required' %>
 
-  <%= f.label :coach %>
-  <%= f.text_field :coach %>
+    <%= f.label :coach %>
+    <%= f.text_field :coach %>
 
-  <%= f.label :price %>
-  <%= f.number_field :price, :required => true, :placeholder => 'required'%>
+    <%= f.label :price %>
+    <%= f.number_field :price, :required => true, :placeholder => 'required'%>
 
-  <%= f.label :image %>
-  <%= f.cl_image_upload :image %>
+    <%= f.label :image %>
+    <%= f.cl_image_upload :image %>
 
-  <%= f.label :contact %>
-  <%= f.email_field :contact %>
+    <%= f.label :contact %>
+    <%= f.email_field :contact %>
 
-  <%= f.label :dropzone_id %>
-  <%= f.select :dropzone_id, Dropzone.pluck(:dz_name, :id), :include_blank =>true %>
+    <%= f.label :dropzone_id %>
+    <%= f.select :dropzone_id, Dropzone.pluck(:dz_name, :id), :include_blank =>true %>
 
     <% Discipline.all.each do |discipline| %>
         <%= check_box_tag "event[discipline_ids][]", discipline.id, @event.discipline_ids.include?(discipline.id) %>
         <%= discipline.name %><br/>
       <% end %>
 
-  <%= f.submit %>
-  <% end %>
+      <%= f.submit %>
+    <% end %>
+
+</div>

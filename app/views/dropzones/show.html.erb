@@ -1,36 +1,42 @@
-<h2><%= @dropzone[:dz_name] %></h2>
+<div id = "blueskies">
+    <h2><%= @dropzone[:dz_name] %></h2>
 
-<%= cl_image_tag(@dropzone.image) %>
+    <%= cl_image_tag(@dropzone.image) %>
 
-<div id="mapid">
+    <div id="mapid">
 
-</div>
+    </div>
 
-<% @dropzone.events.each do |event| %>
-  <%= link_to event.name, event %>
-  <% end %>
+    <% @dropzone.events.each do |event| %>
+      <%= link_to event.name, event %>
+    <% end %>
 
 
-<% if @current_user.present? %>
-<script>
-  $(document).ready(function () {
+    <% if @current_user.present? %>
+    <script>
+      $(document).ready(function () {
 
-    const mymap = L.map('mapid').setView([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
-    L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR',{
+      const mymap = L.map('mapid').setView([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
+      L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR',{
       attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-  }).addTo(mymap);
+      }).addTo(mymap);
 
-    L.marker([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>]).addTo(mymap);
-});
+      L.marker([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>]).addTo(mymap);
+    });
 
-</script>
+  </script>
 
-  <% if @current_user.admin? %>
-    <div class="controls">
-      <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
-      <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+  <div id="weather">
+    <%= @openweather %>
+  </div>
+
+    <% if @current_user.admin? %>
+        <div class="controls">
+        <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
+        <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
     </div>
 
 
+    <% end %>
   <% end %>
-<% end %>
+</div>

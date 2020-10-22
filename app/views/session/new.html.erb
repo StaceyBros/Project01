@@ -1,12 +1,16 @@
-<h1>Log In</h1>
+<div id = "log_container">
+  <div id="log">
+    <h1 class="log_heading">Log In</h1>
 
-<%= flash[:error] %>
+  <%= flash[:error] %>
 
-  <%= form_tag login_path do %>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= form_tag(login_path, class: "form") do %>
+      <%= label_tag :email %>
+      <%= email_field_tag :email%>
+        <%= label_tag :password %>
+      <%= password_field_tag :password%>
 
-    <%= submit_tag "Sign in" %>
-  <% end %>
+      <%= submit_tag "Sign in" %>
+    <% end %>
+  </div>
+</div>

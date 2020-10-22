@@ -1,8 +1,10 @@
-<h2>Australian Events</h2>
+<div id = "blueskies">
+  <div id="index">
+    <h2>Australian Events</h2>
 
-<%= link_to "Create event", new_event_path %>
+      <%= link_to "Create event", new_event_path %>
 
-  <% @events.each do |event| %>
-    <p><%= link_to event[:name], event_path(event.id) %></p>
-
-  <% end %>
+        <% @events.each do |event| %>
+            <p><%= link_to event[:name], event_path(event.id) %></p>
+        <% end %>
+</div>

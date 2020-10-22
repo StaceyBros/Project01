@@ -1,11 +1,15 @@
-<h2>Australian Dropzones</h2>
+<div id = "blueskies">
+  <div id="index">
+    <h2>Australian Dropzones</h2>
 
-<% if @current_user.present? %>
-  <% if @current_user.admin? %>
-    <%= link_to "Create dropzone", new_dropzone_path %>
-  <% end %>
-<% end %>
+      <% if @current_user.present? %>
+        <% if @current_user.admin? %>
+          <%= link_to "Create dropzone", new_dropzone_path %>
+        <% end %>
+      <% end %>
 
-  <% @dropzones.each do |dropzone| %>
-  <p><%= link_to dropzone[:dz_name], dropzone_path(dropzone.id) %></p>
-  <% end %>
+      <% @dropzones.each do |dropzone| %>
+        <p><%= link_to dropzone[:dz_name], dropzone_path(dropzone.id) %></p>
+      <% end %>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+<div id = "blueskies">
+
 <h2><%= @event[:name] %></h2>
 
 <%= cl_image_tag(@event.image) %>
@@ -31,3 +33,4 @@
   <% else %>
     <%= button_to "Going", attend_path(@event.id) %>
   <% end %>
+</div>

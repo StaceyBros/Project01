@@ -1,0 +1,132 @@
+/* = require leaflet */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+  background-image: url(/assets/BlueSkies.jpg);
+  width: 100vw;
+  height: 100vh;
+}
+
+.container{
+  max-width: 960px;
+  margin:auto;
+}
+
+.thumb {
+  height: 12em;
+}
+
+.feature {
+  max-height: 30em;
+}
+
+nav{
+  background-color: black;
+  text-align: center;
+  font-size: 30px;
+  padding: .5em;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+}
+
+#mapid {
+width: 200px;
+height: 200px;
+border: 2px solid black;
+}
+
+#weather {
+background-color: blue;
+width: 200px;
+height: 200px;
+}
+
+#blueskies{
+  color: solid white;
+  font-size: 30px;
+}
+
+#log_container{
+  box-shadow: 5px 4px;
+  font-family: 'Fredoka One', cursive;
+  margin: auto;
+  max-width: 500px;
+  background-color: white;
+  border-top-left-radius: .5em;
+  border-bottom-right-radius: .5em;
+  padding-bottom: 10px;
+}
+
+#log{
+  margin-top: 5em;
+  text-align: center;
+}
+
+.log_heading{
+  padding-top: 10px;
+  text-align: center;
+}
+
+input{
+  margin : 0 auto;
+  margin-bottom: 20px;
+  display: block;
+  width: 50%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: .5em;
+  background-color: #f8f8f8;
+}
+
+#event_dropzone_id{
+  margin : 0 auto;
+  margin-bottom: 20px;
+  display: block;
+  width: 50%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: .5em;
+  background-color: #f8f8f8;
+}
+
+#create_edit {
+  box-shadow: 5px 4px;
+  font-family: 'Fredoka One', cursive;
+  margin: auto;
+  max-width: 500px;
+  background-color: white;
+  border-top-left-radius: .5em;
+  border-bottom-right-radius: .5em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.checkbox{
+
+}
+
+.create_edit_heading {
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+
+#index{
+  text-align: center;
+  color: white;
+}
+
+#index a{
+  color: white;
+  text-decoration: none;
+}
+
+#index a:hover{
+  color: yellow;
+  text-shadow: 0px 2px 2px rgba(206,89,55,0);
+}

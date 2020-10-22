@@ -1,4 +1,6 @@
-<h2>Sign Up</h2>
+<div id = "log_container">
+<div id ="log">
+<h1 class="log_heading">Sign Up</h1>
 
   <% if @user.errors.any? %>
     <ol>
@@ -8,16 +10,18 @@
     </ol>
   <% end %>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :license %>
-  <%= f.text_field :license, :placeholder => '#A1234'%>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Sign up!"%>
-<% end %>
+  <%= form_for(@user, class:"form") do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :license %>
+    <%= f.text_field :license, :placeholder => '#A1234'%>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit "Sign up!"%>
+  <% end %>
+  </div>
+</div>
