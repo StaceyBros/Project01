@@ -1,22 +1,23 @@
 
-<div id="blueskies">
-  <div id="profile">
-    <% if @current_user.present? %>
+    <div id="blueskies">
+        <% if @current_user.present? %>
 
-        <% if @current_user.admin? %>
-          <div class="controls">
-            <%= link_to 'All users', users_path %>
-          </div>
+            <% if @current_user.admin? %>
+              <div class="controls">
+                <%= link_to 'All users', users_path %>
+              </div>
+            <% end %>
+        <div id="profile">
+        <% if @current_user.license.present? %>
+        <h5 class="license">Licence Number: <br><%= @current_user.license %></h5>
+        <% end %>
+        <h1><%= @current_user.name %></h1>
+        <h2> Your Events </h2>
+
+        <% @current_user.events.each do |event| %>
+          <div class="user_list_events"><%= link_to event.name, event %></div>
         <% end %>
 
-    <h5 class="license">Licence Number: <br><%= @current_user.license %></h5>
-    <h1><%= @current_user.name %></h1>
-    <h2> Your Events </h2>
-
-    <% @current_user.events.each do |event| %>
-      <div class="user_list_events"><%= link_to event.name, event %></div>
-    <% end %>
-
-   <% end %>
-  </div>
-</div>
+       <% end %>
+      </div>
+    </div>

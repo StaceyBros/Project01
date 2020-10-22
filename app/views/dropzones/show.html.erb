@@ -1,38 +1,39 @@
-<div id = "blueskies">
+  <div id = "blueskies">
 
-    <div id="show_html">
-      <h2><%= @dropzone[:dz_name] %></h2>
+      <div id="show_html">
+        <h2><%= @dropzone[:dz_name] %></h2>
 
-      <%= cl_image_tag(@dropzone.image, :width => 300, :crop => :fill) %>
+        <div class="img">
+          <%= cl_image_tag(@dropzone.image, :crop => :fill, :class => "dropzone_image") %>
+        </div>
 
-      <% @dropzone.events.each do |event| %>
-        <li class="dropzone_events"><%= link_to event.name, event %></li>
-      <% end %>
+        <% @dropzone.events.each do |event| %>
+          <li class="dropzone_events"><%= link_to event.name, event %></li>
+        <% end %>
 
-      <div id="mapid">
+        <% if @current_user.present? %>
+        <script>
+          $(document).ready(function () {
 
-      </div>
+          const mymap = L.map('mapid').setView([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
+          L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR',{
+          attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+          }).addTo(mymap);
 
-      <% if @current_user.present? %>
-      <script>
-        $(document).ready(function () {
+          L.marker([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>]).addTo(mymap);
+        });
 
-        const mymap = L.map('mapid').setView([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
-        L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR',{
-        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-        }).addTo(mymap);
+          </script>
+        </div>
 
-        L.marker([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>]).addTo(mymap);
-      });
+            <% if @current_user.admin? %>
+              <div class="controls_show">
+              <%= link_to "Edit", edit_dropzone_path(@dropzone.id) %>
+              <%= link_to "Delete", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+          </div>
+        <% end %>
+        <div id="mapid">
 
-        </script>
-      </div>
-
-          <% if @current_user.admin? %>
-            <div class="controls_show">
-            <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
-            <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>

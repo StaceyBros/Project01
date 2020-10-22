@@ -34,8 +34,8 @@
   </div>
 
   <div class="controls_show">
-    <%= link_to "Edit #{@event.name}", edit_event_path(@event.id) %>
-    <%= link_to "Delete #{@event.name}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+    <%= link_to "Edit", edit_event_path(@event.id) %>
+    <%= link_to "Delete", @event, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
   </div>
 
 </div>
