@@ -1,26 +1,17 @@
 <div id = "blueskies">
 
-
-  <% if @current_user.admin? %>
-    <div class="controls">
-      <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
-      <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
-    </div>
-  <% end %>
-
-<div id="show_html">
+  <div id="show_html">
     <h2><%= @dropzone[:dz_name] %></h2>
 
-    <%= cl_image_tag(@dropzone.image) %>
+    <%= cl_image_tag(@dropzone.image, :width => 300, :crop => :fill) %>
+
+    <% @dropzone.events.each do |event| %>
+      <li class="dropzone_events"><%= link_to event.name, event %></li>
+    <% end %>
 
     <div id="mapid">
 
     </div>
-
-    <% @dropzone.events.each do |event| %>
-      <li><%= link_to event.name, event %></li>
-    <% end %>
-
 
     <% if @current_user.present? %>
     <script>
@@ -34,9 +25,14 @@
       L.marker([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>]).addTo(mymap);
     });
 
-  </script>
+      </script>
+    </div>
 
-  </div>
-
+        <% if @current_user.admin? %>
+          <div class="controls_show">
+          <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
+          <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+      </div>
+    <% end %>
   <% end %>
 </div>

@@ -13,18 +13,33 @@ body {
   margin: 0 auto;
 }
 
-.controls a{
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.controls a, .controls_show a{
   display: inline;
   font-size: 10px;
   width: 15%;
   background-color: #ccc;;
-  color: white;
+  color: black;
   box-shadow:3px 3px 10px 3px #000000;
   border-radius: .2em;
   padding: 1em 1.5em;
-  text-decoration: none;
   text-transform: uppercase;
   margin-left: 0;
+}
+
+.controls a:hover,.controls_show:hover {
+  color: yellow;
+}
+
+.controls_show{
+  margin: 0 auto;
 }
 
 nav{
@@ -40,7 +55,6 @@ nav a{
   font-size: 25px;
   font-family: 'Lato', sans-serif;
   color: white;
-  text-decoration: none;
   padding-left: 20px;
 }
 
@@ -49,15 +63,10 @@ nav a{
 }
 
 #mapid {
-width: 200px;
-height: 200px;
-border: 2px solid black;
-}
-
-#weather {
-background-color: blue;
-width: 200px;
-height: 200px;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
 }
 
 #blueskies{
@@ -106,7 +115,7 @@ input{
   background-color: #f8f8f8;
 }
 
-#create_edit {
+#create_edit{
   box-shadow: 5px 4px;
   font-family: 'Fredoka One', cursive;
   margin: auto;
@@ -117,9 +126,11 @@ input{
   padding-top: 20px;
   padding-bottom: 10px;
 }
+
 #events_create_edit{
   text-align: center;
 }
+
 #event_discipline_ids_{
   display: inline-block;
   padding-top: 40px;
@@ -131,7 +142,7 @@ input{
   padding-bottom: 5px;
 }
 
-.create_edit_heading {
+.create_edit_heading{
   font-family: 'Fredoka One', cursive;
   color: white;
   text-align: center;
@@ -153,7 +164,6 @@ input{
 
 #index a{
   color: white;
-  text-decoration: none;
 }
 
 #index a:hover{
@@ -161,7 +171,8 @@ input{
   text-shadow: 4px 4px 4px rgba(206,89,55,1);
 }
 
-#profile h2{
+#profile h2, h1{
+  margin: 0;
   text-align: center;
   text-decoration: underline;
   text-shadow: 2px 2px 2px rgba(206,89,55,1);
@@ -171,7 +182,6 @@ input{
 #profile a{
   text-align: center;
   color: black;
-  text-decoration: none;
   display: block;
 }
 
@@ -199,14 +209,17 @@ input{
   padding-bottom: 0px;
 }
 
-ul {
-  list-style: none;
+.license{
+  color: white;
+  font-family: 'Lato', sans-serif;
+  display: inline;
 }
+
+
 
 #show_html{
   font-family: 'Lato', sans-serif;
   padding-top: 5px;
-  text-align: center;
   box-shadow: 5px 4px;
   margin: auto;
   max-width: 500px;
@@ -214,4 +227,35 @@ ul {
   border-top-left-radius: .5em;
   border-bottom-right-radius: .5em;
   padding-bottom: 10px;
+}
+
+#show_html h2{
+  text-align: center;
+}
+
+.show_event_h2{
+  font-family: 'Fredoka One', cursive;
+}
+
+#show_html input{
+  background-color: yellow;
+  width: 20%;
+}
+
+#show_html a{
+  color: blue;
+}
+
+#show_html a:hover{
+  color: grey;
+}
+
+.dropzone_events{
+  text-align: center;
+  list-style: none;
+  padding-bottom: 10px;
+}
+
+.event_details{
+  font-size: 20px;
 }
