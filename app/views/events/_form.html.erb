@@ -1,6 +1,6 @@
 <div id = "create_edit">
-
-    <%= form_for(@event, :html => {:multipart => true}) do |f|%>
+  <div id="events_create_edit">
+      <%= form_for(@event, :html => {:multipart => true}) do |f|%>
       <%= f.label :name %>
       <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'required' %>
 
@@ -24,7 +24,7 @@
 
     <%= f.label :dropzone_id %>
     <%= f.select :dropzone_id, Dropzone.pluck(:dz_name, :id), :include_blank =>true %>
-
+    </div>
     <% Discipline.all.each do |discipline| %>
         <%= check_box_tag "event[discipline_ids][]", discipline.id, @event.discipline_ids.include?(discipline.id) %>
         <%= discipline.name %><br/>
@@ -32,5 +32,4 @@
 
       <%= f.submit %>
     <% end %>
-
 </div>

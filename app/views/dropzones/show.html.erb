@@ -1,4 +1,14 @@
 <div id = "blueskies">
+
+
+  <% if @current_user.admin? %>
+    <div class="controls">
+      <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
+      <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+    </div>
+  <% end %>
+
+<div id="show_html">
     <h2><%= @dropzone[:dz_name] %></h2>
 
     <%= cl_image_tag(@dropzone.image) %>
@@ -8,7 +18,7 @@
     </div>
 
     <% @dropzone.events.each do |event| %>
-      <%= link_to event.name, event %>
+      <li><%= link_to event.name, event %></li>
     <% end %>
 
 
@@ -26,17 +36,7 @@
 
   </script>
 
-  <div id="weather">
-    <%= @openweather %>
   </div>
 
-    <% if @current_user.admin? %>
-        <div class="controls">
-        <%= link_to "Edit #{@dropzone.dz_name}", edit_dropzone_path(@dropzone.id) %>
-        <%= link_to "Delete #{@dropzone.dz_name}", @dropzone, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
-    </div>
-
-
-    <% end %>
   <% end %>
 </div>

@@ -1,12 +1,14 @@
 <div id = "blueskies">
 
-<h2><%= @event[:name] %></h2>
+  <div class="controls">
+    <%= link_to "Edit #{@event.name}", edit_event_path(@event.id) %>
+    <%= link_to "Delete #{@event.name}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"} %></div>
 
-<%= cl_image_tag(@event.image) %>
+<div id="show_html">
+  <h2><%= @event[:name] %></h2>
 
-<div class="controls">
-  <%= link_to "Edit #{@event.name}", edit_event_path(@event.id) %>
-  <%= link_to "Delete #{@event.name}", @event, :method => 'delete', :data => {:confirm => "Are you sure?"} %>
+  <%= cl_image_tag(@event.image, :width => 300, :crop => :fill) %>
+
 
 <ul>
   <li>Date: <%= @event[:date].strftime "%e %b %Y"  %></li>
