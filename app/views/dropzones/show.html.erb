@@ -3,9 +3,11 @@
       <div id="show_html">
         <h2 id="show_html_header"><%= @dropzone[:dz_name] %></h2>
 
+          <% if @dropzone.image.present?  %>
         <div class="img">
           <%= cl_image_tag(@dropzone.image, :crop => :fill, :class => "img") %>
         </div>
+        <% end%>
 
         <% @dropzone.events.each do |event| %>
           <li class="dropzone_events"><%= link_to event.name, event %></li>
@@ -15,7 +17,7 @@
         <script>
           $(document).ready(function () {
 
-          const mymap = L.map('mapid').setView([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
+          const mymap = L.map('mapid').setView([`-`<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
           L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR',{
           attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
           }).addTo(mymap);

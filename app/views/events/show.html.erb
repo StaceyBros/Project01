@@ -3,8 +3,9 @@
   <div id="show_html">
     <h2 class="show_event_h2"><%= @event[:name] %></h2>
 
+    <% if @event.image.present?  %>
     <%= cl_image_tag(@event.image, :crop => :fill, :class => "img") %>
-
+    <% end %>
 
     <ul class="event_details">
       <li>Date: <%= @event[:date].strftime "%e %b %Y"  %></li>
