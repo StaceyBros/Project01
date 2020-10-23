@@ -15,7 +15,8 @@ Both users and dropzones has_many events so that they can print as many events o
 
 An event belongs a dropzone because it will only be held in that location.
 
-I implemented a map using JavaScript with the leaflet API.
+I implemented a map using JavaScript with the leaflet API. I loaded a .js file and .css file and looked at the tutorials to figure out how to implement the js code. I used MapTiler for the map tiles.
+
 
 ## Bugs/Issues
 
@@ -31,4 +32,4 @@ Thanks to Ben Cuttler, Greg Crozier, Fiona Jansen, Kestral and LG for permission
 
 [Map API](https://leafletjs.com/examples/quick-start/)
 
-[Blue Skies app is here](https://staceybros.github.io/tic-tac-toe/)
+[Blue Skies app is here]()

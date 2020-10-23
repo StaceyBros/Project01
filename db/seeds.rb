@@ -47,7 +47,7 @@
   u2.events << e3 << e4 << e2
 
   puts "Dropzones and Events"
-  d1.events << e8 << e8
+  d1.events << e8 << e1 << e2
   d2.events << e7
   d3.events << e6
   d4.events << e5
