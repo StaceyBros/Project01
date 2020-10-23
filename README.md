@@ -1,24 +1,18 @@
-# README
+# BlueSkies App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I made this application so that skydivers could easily look up events around Australia. Each skydiver has their own profile where they can add and unattend events. They can create and delete events and admin users can create and delete dropzones.
 
-Things you may want to cover:
+## Playing the game
 
-* Ruby version
 
-* System dependencies
+## How the code works
 
-* Configuration
+There are 4 models. 3 of which have CRUD systems. 
 
-* Database creation
+## links and credits
 
-* Database initialization
+Thanks to Ben Cuttler, Greg Crozier for permission to use the photos in the app.
 
-* How to run the test suite
+[Map API](https://leafletjs.com/examples/quick-start/)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Blue Skies app is here](https://staceybros.github.io/tic-tac-toe/)

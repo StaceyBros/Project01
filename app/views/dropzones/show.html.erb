@@ -17,7 +17,7 @@
         <script>
           $(document).ready(function () {
 
-          const mymap = L.map('mapid').setView([`-`<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
+          const mymap = L.map('mapid').setView([<%= @dropzone.latitude %>, <%= @dropzone.longitude %>], 13);
           L.tileLayer('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=9IGp47mLypUCXZrtgfzR',{
           attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
           }).addTo(mymap);
