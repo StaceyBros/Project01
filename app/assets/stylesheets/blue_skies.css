@@ -79,8 +79,8 @@
   }
 
   .log_out{
-    left: 450px;
-    position: relative;
+    left: 832px;
+    position: sticky;
     color: white;
   }
 
@@ -241,7 +241,9 @@
   .license{
     color: white;
     font-family: 'Lato', sans-serif;
-    display: inline;
+    margin-top: 18px;
+    margin-bottom: 0;
+
   }
 
   #show_html{

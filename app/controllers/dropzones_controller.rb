@@ -45,6 +45,6 @@
 
     private
       def dropzone_params
-        params.require(:dropzone).permit(:state, :dz_name, :image)
+        params.require(:dropzone).permit(:state, :dz_name, :image, :latitude, :longitude)
       end
   end
